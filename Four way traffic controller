@@ -1,0 +1,143 @@
+int signal=0;
+int road1[] = {4, 3,2 };
+int road2[] = {7, 6, 5};
+int road3[] = {10, 9, 8};
+int road4[] = {13, 12, 11};
+void setup()
+{
+ Serial.begin(9600);
+  for (int i = 0; i < 3; i++) {
+    pinMode(road1[i], OUTPUT);
+    pinMode(road2[i], OUTPUT);
+    pinMode(road3[i], OUTPUT);
+    pinMode(road4[i], OUTPUT);
+  }
+}  
+
+void loop()
+{
+  if(Serial.available()>0)
+     {
+       signal=Serial.read();
+    switch(signal)    
+    {
+      case '1':
+        digitalWrite(road1[2], HIGH);
+        digitalWrite(road1[1], LOW);
+        digitalWrite(road1[0], LOW);
+        digitalWrite(road2[2], LOW); 
+        digitalWrite(road2[1], LOW);
+        digitalWrite(road2[0], HIGH);
+        digitalWrite(road3[2], LOW);
+        digitalWrite(road3[1], LOW);
+        digitalWrite(road3[0], HIGH);
+        digitalWrite(road4[2], LOW);
+        digitalWrite(road4[1], LOW);
+        digitalWrite(road4[0], HIGH);		
+			
+         delay(1000);
+         break;
+       case '2':
+        digitalWrite(road1[2], LOW);
+        digitalWrite(road1[1], LOW);
+        digitalWrite(road1[0], HIGH);
+        digitalWrite(road2[2], HIGH); 
+        digitalWrite(road2[1], LOW);
+        digitalWrite(road2[0], LOW);
+        digitalWrite(road3[2], LOW);
+        digitalWrite(road3[1], LOW);
+        digitalWrite(road3[0], HIGH);
+        digitalWrite(road4[2], LOW);
+        digitalWrite(road4[1], LOW);
+        digitalWrite(road4[0], HIGH);		
+         delay(1000);
+         break;
+       case '3':
+        digitalWrite(road1[2], LOW);
+        digitalWrite(road1[1], LOW);
+        digitalWrite(road1[0], HIGH);
+        digitalWrite(road2[2], LOW); 
+        digitalWrite(road2[1], LOW);
+        digitalWrite(road2[0], HIGH);
+        digitalWrite(road3[2], HIGH);
+	digitalWrite(road3[1], LOW);
+        digitalWrite(road3[0], LOW);
+        digitalWrite(road4[2], LOW);
+        digitalWrite(road4[1], LOW);
+        digitalWrite(road4[0], HIGH);
+         delay(1000);
+         break;
+       case '4':
+        digitalWrite(road1[2], LOW);
+        digitalWrite(road1[1], LOW);
+        digitalWrite(road1[0], HIGH);
+        digitalWrite(road2[2], LOW); 
+        digitalWrite(road2[1], LOW);
+        digitalWrite(road2[0], HIGH);
+        digitalWrite(road3[2], LOW);
+	digitalWrite(road3[1], LOW);
+        digitalWrite(road3[0], HIGH);
+        digitalWrite(road4[2], HIGH);
+        digitalWrite(road4[1], LOW);
+        digitalWrite(road4[0], LOW);
+         delay(1000);
+         break;
+      case 'a':
+          // Making Green  LED at road 1 and red LED's at other road HIGH
+  digitalWrite(road1[2], HIGH);
+  digitalWrite(road1[0], LOW);
+  digitalWrite(road2[0], HIGH);
+  digitalWrite(road3[0], HIGH);
+  digitalWrite(road4[0], HIGH);
+  delay(3000);
+
+  // Making Green LED at road 1 LOW and making yellow LED at road 1 HIGH for 2 seconds
+  digitalWrite(road1[1], HIGH);
+  digitalWrite(road1[2], LOW);
+  delay(1000);
+  digitalWrite(road1[1], LOW);
+
+  // Making Green  LED at road 2 and red LED's at other road HIGH
+  digitalWrite(road1[0], HIGH);
+  digitalWrite(road2[2], HIGH);
+  digitalWrite(road2[0], LOW);
+  digitalWrite(road3[0], HIGH);
+  digitalWrite(road4[0], HIGH);
+  delay(5000);
+
+  // Making Green LED at road 2 LOW and making yellow LED at road 2 HIGH for 2 seconds
+  digitalWrite(road2[1], HIGH);
+  digitalWrite(road2[2], LOW);
+  delay(2000);
+  digitalWrite(road2[1], LOW);
+
+  // Making Green  LED at road 3 and red LED's at other road HIGH
+  digitalWrite(road1[0], HIGH);
+  digitalWrite(road2[0], HIGH);
+  digitalWrite(road3[2], HIGH);
+  digitalWrite(road3[0], LOW);
+  digitalWrite(road4[0], HIGH);
+  delay(3000);
+
+  // Making Green LED at road 3 LOW and making yellow LED at road 3 HIGH for 2 seconds
+  digitalWrite(road3[1], HIGH);
+  digitalWrite(road3[2], LOW);
+  delay(1000);
+  digitalWrite(road3[1], LOW);
+
+  // Making Green  LED at road 4 and red LED's at other road HIGH
+  digitalWrite(road1[0], HIGH);
+  digitalWrite(road2[0], HIGH);
+  digitalWrite(road3[0], HIGH);
+  digitalWrite(road4[2], HIGH);
+  digitalWrite(road4[0], LOW);
+  delay(3000);
+
+  // Making Green LED at road 4 LOW and making yellow LED at road 4 HIGH for 2 seconds
+  digitalWrite(road4[1], HIGH);
+  digitalWrite(road4[2], LOW);
+  delay(1000);
+  digitalWrite(road4[1], LOW);
+      digitalWrite(road4[0], HIGH);
+    }}
+}
